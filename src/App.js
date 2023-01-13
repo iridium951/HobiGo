@@ -12,7 +12,7 @@ import "./styles.css"
 import YourSchedule from './Components/pages/YourSchedule'
 import Landing from './Components/pages/Landing'
 import Login from './Components/pages/Login'
-import Sign from './Components/pages/Sign'
+import Signup from './Components/pages/Signup'
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
         <Route path="/schedule" element={<YourSchedule />} />
         <Route path="/landing" element={<Landing />} /> 
         <Route path="/login" element={<Login />} /> 
-        <Route path="/singup" element={<Sign />} /> 
+        <Route path="/signup" element={<Signup />} /> 
       
       </Routes>
     </div>
@@ -42,9 +42,6 @@ function App() {
 
   </>
   )
-  
-    
-  
 }
 
 export default App
