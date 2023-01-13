@@ -1,0 +1,17 @@
+.name {
+    text-align: center;
+    margin: 1rem;
+    font-size: 1.3rem;
+    
+}
+
+.email {
+    text-align: center;
+    margin: 1rem;
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+
+

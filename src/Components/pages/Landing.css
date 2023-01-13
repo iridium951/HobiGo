@@ -1,0 +1,62 @@
+.header {
+    margin: 1rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    position: absolute;
+    top: 16px;
+}
+
+.blurb-header {
+    margin: 1rem;
+    font-size: 2.5rem;
+    text-decoration: none;
+    position: inherit;
+}
+
+.blurb {
+    margin: 1rem;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    text-decoration: none;
+}
+
+.button {
+    height: 36px;
+    width: 340px; 
+    margin: 1rem;
+    border-radius: 15px;
+    border: none;
+}
+  
+.login-button {
+    background-color: rgba(158, 212, 104, 1);
+    color: white;
+}
+
+.signup-button {
+    background-color: white;
+    color: rgba(158, 212, 104, 1);
+    
+}
+
+.button + .button {
+    margin-top: 4px; 
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-placeholder {
+    width: 400px;
+    height: 241px;
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+  }
+  

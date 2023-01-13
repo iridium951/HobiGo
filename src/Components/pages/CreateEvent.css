@@ -1,0 +1,75 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+.form-wrapper {
+    margin: 30px auto;
+    min-height: 3040px;
+}
+
+
+.fit {
+    margin-top: 5%;
+}
+
+.formstyle {
+    margin-bottom: 10%;
+}
+
+.inputline {
+    background-color: #F2F2F7;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid green;
+    width: 80%;
+}
+
+.gray-rectangle {
+    margin: 5% 5% 5% 0%;
+    background-color: #D3D3D3;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+  }
+  
+  .white-rectangle {
+    margin: 5% 0% 5% 0%;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .plus-sign {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: #D3D3D3;
+  }
+  
+  .line {
+    background-color: green;
+    height: 2px;
+    width: 80%;
+    margin-top: 5px;
+  }
+  
+
+.create-event-button {
+    margin: 30px auto;
+    background-color: green;
+    color: white; 
+    font-family: "outfit"; 
+    font-size: 1.5em; 
+    border-radius: 50px; 
+    text-align: center;
+    width: 50%;
+    padding: 10px 0;
+    border: none;
+  }
+

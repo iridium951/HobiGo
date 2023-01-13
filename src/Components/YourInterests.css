@@ -1,0 +1,16 @@
+.interests-box {
+    text-align: center;
+    margin: 1rem;
+    padding: 16px;
+    font-size: 1.5rem;
+    background-color: white;
+    border-radius: 15px;
+
+}
+
+.interests {
+    margin: 1rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
