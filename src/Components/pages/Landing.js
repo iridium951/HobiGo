@@ -1,8 +1,7 @@
 import React from 'react'
 import "./Landing.css"
-import Box from '@mui/material/Box';
 import { Link } from "react-router-dom"
-
+import pic154 from "./assets/Group154.png"
 
 function Landing() {
   return (
@@ -18,7 +17,7 @@ function Landing() {
     own event and host a hobby.
     </div>
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-    <Box width={326} height={241} m={1} borderRadius={2} style={{backgroundColor: 'rgba(158, 212, 104, 1)'}} />
+    <img src={pic154} alt = "yoga pose" className="ima"></img>
 </div>
     <div className="button-container">
         <Link to={{pathname: `/login`}}
