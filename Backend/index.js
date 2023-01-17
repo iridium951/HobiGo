@@ -5,6 +5,7 @@ const JsonWebToken = require('jsonwebtoken');
 const cors = require('cors')
 const UserModel = require('./models/user-model.js');
 const EventModel = require('./models/event-model.js');
+const { UNSAFE_RouteContext } = require('react-router-dom');
 //const LocationModel = require('./models/location-model.js');
 
 const mongoUrl = "mongodb://127.0.0.1:27017/Habby";
@@ -37,7 +38,7 @@ function verifyToken(request, response, next) {
                 if (!user.token.includes(headerToken)) {
                     return response.sendStatus(403).send('Token not found');
                 }
-                request.tokenUserId = user.UserId;
+                request.tokenUserId = user._id;
                 console.log('token UserId: ' + request.tokenUserId);
                 next();
             });
@@ -64,11 +65,34 @@ async function initServer() {
         });
     });
 
-    // GET user by id
+/*     // GET user by id
     server.get("/users/:id", (request, response) => {
         if (request.params.id) {
             console.log('get /users/id: ' + request.params.id);
             UserModel.find({ 'UserId': request.params.id }, (error, result) => {
+                if (error) {
+                    return response.status(500).send(error);
+                }
+                if (result.length !== 1) {
+                    return response.status(404).send("Data not found " + result.length);
+                }
+                response.send(result);
+            });
+        }
+        else {
+            response.status(500).send("Invalid parameter id");
+        }
+    }); */
+
+
+    // GET user by id (only visible for user with appropriate token)
+    server.get("/users/:id", verifyToken, (request, response) => {
+        if (request.params.id) {
+            console.log('get /users/id: ' + request.params.id);
+            if (request.tokenUserId !== request.params.id) {
+                return response.status(404).send("Data not found " + request.params.id);
+            }
+            UserModel.find({ '_id': request.tokenUserId}, (error, result) => {
                 if (error) {
                     return response.status(500).send(error);
                 }
