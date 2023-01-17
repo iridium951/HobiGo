@@ -50,6 +50,7 @@ function verifyToken(request, response, next) {
 
 async function initServer() {
     const server = express();
+    server.use(express.json());
     server.use(cors());
 
     // GET all users
