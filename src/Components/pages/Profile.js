@@ -14,29 +14,35 @@ export default function Profile() {
 
   const readProfile = async () => {
     console.log("1");
-    const url = "http://localhost:3000/users/" + id
+    var loginToken = sessionStorage.getItem("AUTH_TOKEN");
+    var loginId = sessionStorage.getItem("AUTH_ID");
+    console.log("2 " + loginToken);
+    const url = "http://localhost:3000/users/" + loginId;
     const requestOptions = {
       method: "GET",
-      headers: { 
+      headers: {
         "Content-Type": "application/json",
-        'Authorization': 'Basic '+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5pa2l0YUBuaWtpdGEuZGUiLCJpYXQiOjE2NzM5NzQ5ODJ9.e9S-wcdDSavc8pseyTFdseAAxqvcgesnxXxmIPSV0rw' 
-    },
+        'Authorization': 'Bearer ' + loginToken
+      },
       //body: JSON.stringify({ Name: Name, EmailAddress: EmailAddress })
     }
     fetch(url, requestOptions)
       .then(response => {
         console.log(JSON.stringify({ Name: Name, EmailAddress: EmailAddress }));
         console.log(response.status);
-        console.log(response.data);
         if (response.ok) {
           console.log("ok");
+          response.json().then(data => {
+            console.log(JSON.stringify(data));
+            setName(data[0].Name);
+            setEmailAddress(data[0].EmailAddress);
+          });
         }
       })
-      .then(data => console.log(data));
   }
 
-     
-  readProfile(); 
+
+  readProfile();
 
 
   return (

@@ -7,6 +7,10 @@ const UserModel = require('./models/user-model.js');
 const EventModel = require('./models/event-model.js');
 const { UNSAFE_RouteContext } = require('react-router-dom');
 //const LocationModel = require('./models/location-model.js');
+const bodyParser = require('body-parser');
+
+
+
 
 const mongoUrl = "mongodb://127.0.0.1:27017/Habby";
 const serverPort = 3000;
@@ -52,6 +56,7 @@ function verifyToken(request, response, next) {
 async function initServer() {
     const server = express();
     server.use(express.json());
+    server.use(bodyParser.urlencoded({ extended: true }));
     server.use(cors());
 
     // GET all users
@@ -89,16 +94,22 @@ async function initServer() {
     server.get("/users/:id", verifyToken, (request, response) => {
         if (request.params.id) {
             console.log('get /users/id: ' + request.params.id);
-            if (request.tokenUserId !== request.params.id) {
+            console.log('get /users/id: ' + request.tokenUserId);
+            if (!request.tokenUserId === request.params.id) {
+                console.log('111');
                 return response.status(404).send("Data not found " + request.params.id);
             }
-            UserModel.find({ '_id': request.tokenUserId}, (error, result) => {
+            console.log('112');
+            UserModel.find({ _id: request.tokenUserId}, (error, result) => {
                 if (error) {
+                    console.log('113');
                     return response.status(500).send(error);
                 }
                 if (result.length !== 1) {
+                    console.log('114');
                     return response.status(404).send("Data not found " + result.length);
                 }
+                console.log('115');
                 response.send(result);
             });
         }
@@ -142,10 +153,14 @@ async function initServer() {
                 if (error) {
                     return response.status(500).send(error);
                 }
-                response.send({ 'token': token });
+                response.send({ 'id': user._id, 'token': token });
             });
         });
     });
+
+
+
+
 
     // POST user logout
     server.post("/users/logout", verifyToken, (request, response) => {
