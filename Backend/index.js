@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const express = require('express');
 const validator = require('validator');
 const JsonWebToken = require('jsonwebtoken');
-
+const cors = require('cors')
 const UserModel = require('./models/user-model.js');
 const EventModel = require('./models/event-model.js');
 //const LocationModel = require('./models/location-model.js');
 
-const mongoUrl = "mongodb://localhost:27017/Habby";
+const mongoUrl = "mongodb://127.0.0.1:27017/Habby";
 const serverPort = 3000;
 const SecretPassword = "ioyJhbG5iOiJIUzI1NiJ9";
 
@@ -50,7 +50,7 @@ function verifyToken(request, response, next) {
 
 async function initServer() {
     const server = express();
-    server.use(express.json());
+    server.use(cors());
 
     // GET all users
     server.get("/users", (request, response) => {

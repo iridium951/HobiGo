@@ -1,21 +1,40 @@
 import React from 'react'
 import "./Login.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useState } from 'react';
 import mail from "./assets/mail.png"
 import lock from "./assets/lock.png"
+import { Message } from '@mui/icons-material';
 
 function Login() {
-  const [value1, setValue1] = useState('');
-  const [value2, setValue2] = useState('');
+  const [maill, setMail] = useState('');
+  const [lockk, setLock] = useState('');
 
-  const handleChange1 = (event) => {
-    setValue1(event.target.value);
+  const handleMail = (event) => {
+    setMail(event.target.value);
   };
   
-  const handleChange2 = (event) => {
-    setValue2(event.target.value);
+  const handleLock = (event) => {
+    setLock(event.target.value);
   };
+
+  const handleLogin = async () => {
+    const url = "http://localhost:3000/users/login"
+    const requestOptions = {
+      method:"POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({EmailAddress:maill,Password:lockk})
+    }
+    fetch(url,requestOptions)
+        .then(response => {
+          console.log(response.status);
+          console.log(response.data)
+          if (response.ok) {
+            window.location.href="/";
+          }
+        })
+        .then(data => console.log(data));
+      }
 
   return (
     <>
@@ -30,21 +49,20 @@ function Login() {
     </div>
     <div className="center-input">
     <img src={mail} alt = "mail" className="ima1"></img>
-    <input className="input-field" type="text" maxlength="35" size={40} value={value1} onChange={handleChange1} />
+    <input className="input-field" type="text" maxlength="35" size={40} value={maill} onChange={handleMail} />
     </div>
     <div className="center-input">
     <img src={lock} alt = "lock" className="ima1"></img>
-    <input className="input-field" type="text"  maxlength="35" size={40} value={value2} onChange={handleChange2} />
+    <input className="input-field" type="text"  maxlength="35" size={40} value={lockk} onChange={handleLock} />
     </div>
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
 </div>
     <div className="button-container1">
-        <Link to={{pathname: `/`}}
- > 
-            <button className="button login-button1">
+        {/*<Link to={{pathname: `/`}}>*/} 
+            <button className="button login-button1" onClick={() =>handleLogin()}>
               Log In
             </button>
-        </Link>
+        {/*</Link>*/}
   </div>
     </>
   )
