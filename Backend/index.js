@@ -9,9 +9,6 @@ const { UNSAFE_RouteContext } = require('react-router-dom');
 //const LocationModel = require('./models/location-model.js');
 const bodyParser = require('body-parser');
 
-
-
-
 const mongoUrl = "mongodb://127.0.0.1:27017/Habby";
 const serverPort = 3000;
 const SecretPassword = "ioyJhbG5iOiJIUzI1NiJ9";
@@ -44,6 +41,7 @@ function verifyToken(request, response, next) {
                 }
                 request.tokenUserId = user._id;
                 console.log('token UserId: ' + request.tokenUserId);
+                request.tokenUser = user;
                 next();
             });
         });
@@ -165,7 +163,7 @@ async function initServer() {
     // POST user logout
     server.post("/users/logout", verifyToken, (request, response) => {
         console.log('post /users/logout: ' + request.token);
-        UserModel.find({ 'UserId': request.tokenUserId }, (error, result) => {
+        UserModel.find({ _id: request.tokenUserId }, (error, result) => {
             if (error) {
                 return response.status(403).send(error);
             }
@@ -181,14 +179,14 @@ async function initServer() {
         });
     });
 
-    // PATCH user
-    server.patch("/users", (request, response) => {
-        console.log('patch /users: ' + JSON.stringify(request.body));
-        if (request.body.UserId) {
+    // PATCH user by id
+    server.patch("/users/:id", (request, response) => {
+        console.log('patch /users/id: ' + JSON.stringify(request.body));
+        if (request.params.id) {
             if (request.body.EmailAddress && !validator.isEmail(request.body.EmailAddress)) {
                 return response.status(403).send("Invalid Email format");
             }
-            UserModel.findOneAndUpdate({ 'UserId': request.body.UserId }, request.body, { upsert: true }, (error) => {
+            UserModel.findOneAndUpdate({ _id: request.params.id }, request.body, { upsert: true }, (error) => {
                 if (error) {
                     return response.status(500).send(error);
                 }
@@ -205,7 +203,7 @@ async function initServer() {
     server.delete("/users/:id", (request, response) => {
         if (request.params.id) {
             console.log('delete /users/id: ' + request.params.id);
-            UserModel.findOneAndDelete({ 'UserId': request.params.id }, (error, result) => {
+            UserModel.findOneAndDelete({ _id: request.params.id }, (error, result) => {
                 if (error) {
                     return response.status(500).send(error);
                 }
@@ -219,7 +217,7 @@ async function initServer() {
     // GET all events (only visible for user with appropriate token)
     server.get("/events", verifyToken, (request, response) => {
         console.log('get /events ' + request.tokenUserId);
-        EventModel.find({ 'UserId': request.tokenUserId }, (error, result) => {
+        EventModel.find({ 'User': request.tokenUser }, (error, result) => {
             if (error) {
                 return response.status(500).send(error);
             }
@@ -230,8 +228,8 @@ async function initServer() {
     // GET event by id (only visible for user with appropriate token)
     server.get("/events/:id", verifyToken, (request, response) => {
         if (request.params.id) {
-            console.log('get /events/id: ' + request.params.id + ' ' + request.UserId);
-            EventModel.find({ 'UserId': request.tokenUserId, 'EventId': request.params.id }, (error, result) => {
+            console.log('get /events/id: ' + request.params.id + ' ' + request.tokenUserId);
+            EventModel.find({ 'User': request.tokenUser, _id: request.params.id }, (error, result) => {
                 if (error) {
                     return response.status(500).send(error);
                 }
@@ -249,9 +247,9 @@ async function initServer() {
     // POST event (using token)
     server.post("/events", verifyToken, (request, response) => {
         console.log('post /events: ' + JSON.stringify(request.body));
-        request.body.UserId = request.tokenUserId;
-        const user = new EventModel(request.body);
-        user.save((error) => {
+        const event = new EventModel(request.body);
+        event.User = request.tokenUser;
+        event.save((error) => {
             if (error) {
                 return response.status(500).send(error);
             }
@@ -260,10 +258,10 @@ async function initServer() {
     });
 
     // PATCH event (only usable for user with appropriate token)
-    server.patch("/events", verifyToken, (request, response) => {
+    server.patch("/events/:id", verifyToken, (request, response) => {
         console.log('patch /events: ' + JSON.stringify(request.body));
-        if (request.body.EventId) {
-            EventModel.findOneAndUpdate({ 'UserId': request.tokenUserId, 'EventId': request.body.EventId }, request.body, { upsert: true }, (error) => {
+        if (request.params.id) {
+            EventModel.findOneAndUpdate({ 'User': request.tokenUser, _id: request.params.id }, request.body, { upsert: true }, (error) => {
                 if (error) {
                     return response.status(500).send(error);
                 }
@@ -273,14 +271,13 @@ async function initServer() {
         else {
             response.status(500).send("Invalid parameter EventId");
         }
-
     });
 
     // DELETE event by id (only usable for user with appropriate token)
     server.delete("/events/:id", verifyToken, (request, response) => {
         if (request.params.id) {
             console.log('delete /events/id: ' + request.params.id);
-            EventModel.findOneAndDelete({ 'UserId': request.tokenUserId, 'EventId': request.params.id }, (error, result) => {
+            EventModel.findOneAndDelete({ 'User': request.tokenUser, _id: request.params.id }, (error, result) => {
                 if (error) {
                     return response.status(500).send(error);
                 }

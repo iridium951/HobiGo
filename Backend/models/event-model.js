@@ -24,9 +24,8 @@ const eventSchema = new mongoose.Schema({
         data: Buffer,           // Base64 encode nötig für Bild Dateien
         contentType: String
     },
-    AuthorID: {                 // Event muss zum bestimmten Veranstalter gehören
-        type: Number
-    },
+    User: [{ type: mongoose.Schema.Types.ObjectId, ref: 'UserModel' }]  // Event muss zum bestimmten Veranstalter gehören
+    ,
     ParticipantID: 
     [{ type : Number }]         // Hier werden die Teilnehmer gespeichert
 });
