@@ -130,6 +130,7 @@ async function initServer() {
                 return response.status(500).send(error);
             }
             response.send();
+            
         });
     });
 
@@ -154,6 +155,8 @@ async function initServer() {
                     return response.status(500).send(error);
                 }
                 response.send({ 'id': user._id, 'token': token });
+                
+
             });
         });
     });

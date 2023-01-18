@@ -1,10 +1,8 @@
 import React from 'react'
 import "./Login.css"
-import { Link, useNavigate } from "react-router-dom"
 import { useState } from 'react';
 import mail from "./assets/mail.png"
 import lock from "./assets/lock.png"
-import { Message } from '@mui/icons-material';
 
 function Login() {
   const [maill, setMail] = useState('');
@@ -20,6 +18,7 @@ function Login() {
 
   const handleLogin = async () => {
     const url = "http://localhost:3000/users/login"
+    
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept" : "application/json" },

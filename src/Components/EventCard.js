@@ -8,6 +8,7 @@ import { CardActionArea } from '@mui/material';
 
 
 export default function EventCard({data}) {
+  
   return (
     <>
       
@@ -21,10 +22,11 @@ export default function EventCard({data}) {
           />
           <CardContent >
             <Typography gutterBottom variant="h5" component="div" style={{ fontFamily: "outfit", fontSize:"18px" }}>
-            {data.title}
+            {data.Title}
             </Typography>
             <Typography marginBottom="0.5rem"variant="body1" color="text.secondary" style={{ fontFamily: "outfit", overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              {data.about}
+              {data.About}
+              
               
 
             </Typography>

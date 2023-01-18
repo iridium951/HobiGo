@@ -27,8 +27,12 @@ const eventSchema = new mongoose.Schema({
     AuthorID: {                 // Event muss zum bestimmten Veranstalter gehören
         type: Number
     },
+    index:{
+        type: Number
+    },
     ParticipantID: 
-    [{ type : Number }]         // Hier werden die Teilnehmer gespeichert
+    [{ type : Number }]  
+           // Hier werden die Teilnehmer gespeichert
 });
 
 const EventModel = mongoose.model("events", eventSchema);
