@@ -4,6 +4,7 @@ import "./CreateEvent.css"
 
 
 
+
 import { useState } from 'react';
 
 function CreateEvent() {
@@ -14,14 +15,16 @@ function CreateEvent() {
   const [people, setPeople] = useState("");
 
   const handleCreate = async () => {
+    console.log("1");
+    var loginToken = sessionStorage.getItem("AUTH_TOKEN");
+    console.log("2 " + loginToken);
     const url = "http://localhost:3000/events"
-    const token = "";
     const requestOptions = {
       method:"POST",
       headers: {
-        "Content-Type":"application/json",
-        "Authorization": `Bearer ${token}`
-    },
+        "Content-Type": "application/json",
+        'Authorization': 'Bearer ' + loginToken
+      },
 
       body:JSON.stringify({
         Title: title,
