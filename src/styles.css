@@ -1,19 +1,18 @@
 * {
     box-sizing: border-box;
-    
+
 }
 
-html, body {
+html,
+body {
     margin: 0;
     background-color: rgba(242, 242, 247, 1);
     height: 100%
-    
-    
 }
 
 .content-container {
-    margin-top: 60px; 
-  }
+    margin-top: 60px;
+}
 
 .wrapper {
     padding-top: 48px;
@@ -25,13 +24,12 @@ html, body {
 
 
 .material-symbols-outlined {
-  font-size: 32px;
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 700,
-  'GRAD' 0,
-  'opsz' 48
-  
+    font-size: 32px;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 700,
+        'GRAD' 0,
+        'opsz' 48
 }
 
 
@@ -42,8 +40,9 @@ html, body {
 
 .site-title {
     font-size: 2rem;
-    font-family: 'Outfit', sans-serif;    
+    font-family: 'Outfit', sans-serif;
 }
+
 .nav {
     position: fixed;
     top: 0;
@@ -58,8 +57,8 @@ html, body {
     align-items: center;
     gap: 2rem;
     padding: 1rem;
-    
-    
+
+
 }
 
 .nav ul {
@@ -78,9 +77,5 @@ html, body {
     display: flex;
     align-items: center;
     padding: .25rem;
-    
+
 }
-
-
-
-

@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import "@fontsource/outfit";
-import "./CreateEvent.css"
-import { Link } from "react-router-dom"
+import "./CreateEvent.css";
+import { Link } from "react-router-dom";
 
 
 
@@ -15,9 +15,9 @@ function CreateEvent() {
   const [people, setPeople] = useState("");
 
   const handleCreate = async () => {
-    console.log("1");
+    //console.log("1");
     var loginToken = sessionStorage.getItem("AUTH_TOKEN");
-    console.log("2 " + loginToken);
+    //console.log("2 " + loginToken);
     const url = "http://localhost:3000/events"
     const requestOptions = {
       method: "POST",
@@ -78,11 +78,11 @@ function CreateEvent() {
         <div className="plus-sign">+</div>
       </div>
       <div className="line"></div>
-        <Link to={{pathname: `/`}}> 
+      <Link to={{ pathname: `/` }}>
         <button className="create-event-button" onClick={handleCreate}>Create Event</button>
-        </Link>
+      </Link>
     </div >
   )
 }
 
-export default CreateEvent
+export default CreateEvent;

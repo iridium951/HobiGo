@@ -1,27 +1,27 @@
-import React from 'react'
-import Navbar from './Components/Navbar'
-import Search from "./Components/pages/Search"
-import Home from './Components/pages/Home'
-import { Route, Routes } from "react-router-dom"
-import BottomNav from './Components/BottomNav'
-import Profile from './Components/pages/Profile'
-import Chat from './Components/pages/Chat'
-import CreateEvent from './Components/pages/CreateEvent'
-import Event from './Components/pages/Event'
-import "./styles.css"
-import YourSchedule from './Components/pages/YourSchedule'
-import Landing from './Components/pages/Landing'
-import Login from './Components/pages/Login'
-import Signup from './Components/pages/Signup'
-import {Helmet} from "react-helmet";
+import React from 'react';
+import Navbar from './Components/Navbar';
+import Search from "./Components/pages/Search";
+import Home from './Components/pages/Home';
+import { Route, Routes } from "react-router-dom";
+import BottomNav from './Components/BottomNav';
+import Profile from './Components/pages/Profile';
+import Chat from './Components/pages/Chat';
+import CreateEvent from './Components/pages/CreateEvent';
+import Event from './Components/pages/Event';
+import "./styles.css";
+import YourSchedule from './Components/pages/YourSchedule';
+import Landing from './Components/pages/Landing';
+import Login from './Components/pages/Login';
+import Signup from './Components/pages/Signup';
+import { Helmet } from "react-helmet";
 
 function App() {
   return (
     <><div>
-       <Helmet>
-                <meta charSet="utf-8" />
-                <title>Habby</title>
-            </Helmet>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Habby</title>
+      </Helmet>
     </div><>
         <div className='wrapper'>
           <Navbar />
@@ -50,4 +50,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

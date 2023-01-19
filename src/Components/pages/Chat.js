@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import "@fontsource/outfit";
 
 
@@ -8,4 +8,4 @@ function Chat() {
   )
 }
 
-export default Chat
+export default Chat;

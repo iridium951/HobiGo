@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const validator = require('validator');
 const JsonWebToken = require('jsonwebtoken');
-const cors = require('cors')
+const cors = require('cors');
 const UserModel = require('./models/user-model.js');
 const EventModel = require('./models/event-model.js');
 const { UNSAFE_RouteContext } = require('react-router-dom');
@@ -121,7 +121,7 @@ async function initServer() {
         }
     });
 
-    // POST user (Hier NOCH KEINE REGISTRIERUNG, nur allgemeines POST zum Testen in Postman)
+    // POST user 
     server.post("/users", (request, response) => {
         console.log('post /users: ' + JSON.stringify(request.body));
         if (!validator.isEmail(request.body.EmailAddress)) {

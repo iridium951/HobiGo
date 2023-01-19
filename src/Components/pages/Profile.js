@@ -1,10 +1,10 @@
 import "@fontsource/outfit";
 import YourInterests from "../YourInterests";
 import YourLocation from "../YourLocation";
-import "./Profile.css"
+import "./Profile.css";
 import { Avatar, Box } from '@mui/material';
 import { useState } from 'react';
-import pp from "./Images/pp.png" 
+import pp from "./Images/pp.png";
 
 
 
@@ -14,10 +14,10 @@ export default function Profile() {
   const [EmailAddress, setEmailAddress] = useState('');
 
   const readProfile = async () => {
-    console.log("1");
+    //console.log("1");
     var loginToken = sessionStorage.getItem("AUTH_TOKEN");
     var loginId = sessionStorage.getItem("AUTH_ID");
-    console.log("2 " + loginToken);
+    //console.log("2 " + loginToken);
     const url = "http://localhost:3000/users/" + loginId;
     const requestOptions = {
       method: "GET",
@@ -25,7 +25,6 @@ export default function Profile() {
         "Content-Type": "application/json",
         'Authorization': 'Bearer ' + loginToken
       },
-      //body: JSON.stringify({ Name: Name, EmailAddress: EmailAddress })
     }
     fetch(url, requestOptions)
       .then(response => {
