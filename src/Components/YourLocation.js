@@ -1,6 +1,7 @@
 import React from 'react'
 import "./YourLocation.css"
 import { Box } from '@mui/material';
+import map from "./pages/Images/Map.png"
 
 function YourLocation() {
   return (
@@ -8,11 +9,9 @@ function YourLocation() {
     <div className="interests" style={{fontFamily: "outfit"}}> 
         Your Location 
     </div>
-    <Box borderRadius="15px" bgcolor="white" padding="1rem" margin="1rem" justifyContent="center" flexWrap="wrap">
-    
-    
+    <img classname="interests" src={map} alt='images' style={{maxWidth: "100%" }} />
         
-    </Box>
+
     </>
   )
 }
