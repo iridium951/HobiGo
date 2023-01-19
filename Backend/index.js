@@ -9,11 +9,16 @@ const { UNSAFE_RouteContext } = require('react-router-dom');
 //const LocationModel = require('./models/location-model.js');
 const bodyParser = require('body-parser');
 
-const mongoUrl = "mongodb://127.0.0.1:27017/Habby";
+//const dotenv = require('dotenv').config();
+//const mongoUrl = process.env.MONGO_URL;
+const mongoUrl = "mongodb+srv://admin:3gl6TQTO5Hbv7nro@habby.7qdlmc5.mongodb.net";
+//const mongoUrl = "mongodb://127.0.0.1:27017/Habby";
+
 const serverPort = 3000;
 const SecretPassword = "ioyJhbG5iOiJIUzI1NiJ9";
 
 async function initMongoose() {
+    console.log(mongoUrl);
     mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
     const db = mongoose.connection;
     db.on("error", console.error.bind(console, "MongoDB connection error:"));
@@ -68,24 +73,24 @@ async function initServer() {
         });
     });
 
-/*     // GET user by id
-    server.get("/users/:id", (request, response) => {
-        if (request.params.id) {
-            console.log('get /users/id: ' + request.params.id);
-            UserModel.find({ 'UserId': request.params.id }, (error, result) => {
-                if (error) {
-                    return response.status(500).send(error);
-                }
-                if (result.length !== 1) {
-                    return response.status(404).send("Data not found " + result.length);
-                }
-                response.send(result);
-            });
-        }
-        else {
-            response.status(500).send("Invalid parameter id");
-        }
-    }); */
+    /*     // GET user by id
+        server.get("/users/:id", (request, response) => {
+            if (request.params.id) {
+                console.log('get /users/id: ' + request.params.id);
+                UserModel.find({ 'UserId': request.params.id }, (error, result) => {
+                    if (error) {
+                        return response.status(500).send(error);
+                    }
+                    if (result.length !== 1) {
+                        return response.status(404).send("Data not found " + result.length);
+                    }
+                    response.send(result);
+                });
+            }
+            else {
+                response.status(500).send("Invalid parameter id");
+            }
+        }); */
 
 
     // GET user by id (only visible for user with appropriate token)
@@ -98,7 +103,7 @@ async function initServer() {
                 return response.status(404).send("Data not found " + request.params.id);
             }
             console.log('112');
-            UserModel.find({ _id: request.tokenUserId}, (error, result) => {
+            UserModel.find({ _id: request.tokenUserId }, (error, result) => {
                 if (error) {
                     console.log('113');
                     return response.status(500).send(error);
@@ -128,7 +133,7 @@ async function initServer() {
                 return response.status(500).send(error);
             }
             response.send();
-            
+
         });
     });
 
@@ -153,7 +158,7 @@ async function initServer() {
                     return response.status(500).send(error);
                 }
                 response.send({ 'id': user._id, 'token': token });
-                
+
 
             });
         });
@@ -249,6 +254,7 @@ async function initServer() {
 
     // POST event (using token)
     server.post("/events", verifyToken, (request, response) => {
+
         console.log('post /events: ' + JSON.stringify(request.body));
         const event = new EventModel(request.body);
         event.User = request.tokenUser;
