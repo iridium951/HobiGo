@@ -20,7 +20,7 @@ export default function BottomNav() {
               person
             </span>
           </CustomLink>
-          <CustomLink to="/">
+          <CustomLink to="/home">
             <span className="material-symbols-outlined">
               home
             </span>

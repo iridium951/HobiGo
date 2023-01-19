@@ -11,7 +11,7 @@ function Navbar() {
     }
     return (
         <nav className="nav">
-            <Link to="/" className="site-title" style={{ fontFamily: "outfit" }}>
+            <Link to="/home" className="site-title" style={{ fontFamily: "outfit" }}>
                 {title}
             </Link>
             <ul>

@@ -43,7 +43,7 @@ function Signup() {
             //console.log("44 token: " + JSON.stringify(data.token));
             sessionStorage.setItem("AUTH_ID", data.id);
             sessionStorage.setItem("AUTH_TOKEN", data.token);
-            window.location.href = "/";
+            window.location.href = "/login";
           });
         }
       });

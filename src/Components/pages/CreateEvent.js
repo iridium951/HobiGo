@@ -79,7 +79,7 @@ function CreateEvent() {
         <div className="plus-sign">+</div>
       </div>
       <div className="line"></div>
-      <Link to={{ pathname: `/` }}>
+      <Link to={{ pathname: "/home" }}>
         <button className="create-event-button" onClick={handleCreate}>Create Event</button>
       </Link>
     </div >
