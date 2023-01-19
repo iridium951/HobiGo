@@ -7,7 +7,7 @@ import React from 'react';
 
 export default function BottomNav() {
   const location = useLocation();
-  if (location.pathname === "/landing" || location.pathname === "/login" || location.pathname === "/signup") {
+  if (location.pathname === "/" || location.pathname === "/login" || location.pathname === "/signup") {
     return null;
   }
 
