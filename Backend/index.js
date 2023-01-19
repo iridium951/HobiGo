@@ -14,7 +14,7 @@ const bodyParser = require('body-parser');
 const mongoUrl = "mongodb+srv://admin:3gl6TQTO5Hbv7nro@habby.7qdlmc5.mongodb.net";
 //const mongoUrl = "mongodb://127.0.0.1:27017/Habby";
 
-const serverPort = 3000;
+const serverPort = 3001;
 const SecretPassword = "ioyJhbG5iOiJIUzI1NiJ9";
 
 async function initMongoose() {
@@ -297,7 +297,7 @@ async function initServer() {
         }
     });
 
-    server.listen(3000, () => {
+    server.listen(3001, () => {
         console.log('Server up on port ' + serverPort)
     })
 

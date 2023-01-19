@@ -18,7 +18,7 @@ export default function Profile() {
     var loginToken = sessionStorage.getItem("AUTH_TOKEN");
     var loginId = sessionStorage.getItem("AUTH_ID");
     //console.log("2 " + loginToken);
-    const url = "http://localhost:3000/users/" + loginId;
+    const url = "http://localhost:3001/users/" + loginId;
     const requestOptions = {
       method: "GET",
       headers: {
