@@ -3,6 +3,11 @@ import "@fontsource/outfit";
 import { Link } from "react-router-dom"
 import { Grid } from '@mui/material';
 import { useEffect, useState } from "react";
+import football from "./Images/Football.png"
+import basketball from "./Images/Basketball.png"
+import skateboard from "./Images/Skateboard.png"
+
+const images = [football, basketball, skateboard]
 
 export default function Home() {
   const [events, setEvents] = useState([]);
@@ -43,30 +48,19 @@ export default function Home() {
 
   fetchData();
 
-  const schedulecard = events.map((data, index) =>
-
-    <Link
-      to={{ pathname: `/event/${data._id}` }}
-      state={{ title: data.Title, about: data.About, date: data.Date, loc: data.Location, image: data.image }}
-      key={index}
-      style={{ color: "black", textDecoration: "none" }}
-    >
-      <EventCard
-        data={data}
-        image={data.image}
-      />
-    </Link>
-  )
+  const images = [football, basketball, skateboard]
 
   const reccards = events.map((data, index) =>
     <Link
       to={{ pathname: `/event/${data.id}` }}
-      state={{ title: data.Title, about: data.About, date: data.Date, loc: data.Location, image: data.Image }}
+      state={{ title: data.Title, about: data.About, date: data.Date, loc: data.Location, image: images[index], visnum: data.VisitorNumber }}
       key={index}
       style={{ color: "black", textDecoration: "none" }}
     >
       <EventCard
         data={data}
+        image={images[index]}
+        
       />
 
     </Link>
@@ -76,17 +70,9 @@ export default function Home() {
 
   return (
       <>
-      <Link
-        to={{ pathname: `/schedule` }}
-        style={{ color: "black", textDecoration: "none" }}
-      >
-        <div className="interests" style={{ fontFamily: "outfit" }}>
-          Your Schedule
-        </div>
-      </Link>
-      {schedulecard}
+      
       <div className="interests" style={{ fontFamily: "outfit" }}>
-        Near You
+        Near You 
       </div>
 
       <Grid container spacing={12} >

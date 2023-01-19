@@ -7,8 +7,13 @@ import { CardActionArea } from '@mui/material';
 
 
 
-export default function EventCard({data}) {
-  
+export default function EventCard({data, image}) {
+
+  let newDate = new Date(data.Date);
+    let options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+    let formattedDate = newDate.toLocaleString('en-US', options);
+
+
   return (
     <>
       
@@ -16,8 +21,8 @@ export default function EventCard({data}) {
         <CardActionArea>
           <CardMedia
             component="img"
-            height="117"
-            image={data.image}
+            height="200"
+            image={image}
             alt="Event Image"
           />
           <CardContent >
@@ -26,9 +31,9 @@ export default function EventCard({data}) {
             </Typography>
             <Typography marginBottom="0.5rem"variant="body1" color="text.secondary" style={{ fontFamily: "outfit", overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {data.About}
-              
-              
-
+            </Typography>
+            <Typography marginBottom="0.5rem"variant="body1" color="text.secondary" style={{ color: "rgba(158, 212, 104, 1)",fontFamily: "outfit", overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              {formattedDate}
             </Typography>
           </CardContent>
         </CardActionArea>
