@@ -2,7 +2,7 @@ import EventCard from "../EventCard"
 import "@fontsource/outfit";
 import { Link } from "react-router-dom"
 import { Grid } from '@mui/material';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import football from "./Images/Football.png"
 import basketball from "./Images/Basketball.png"
 import skateboard from "./Images/Skateboard.png"
