@@ -26,7 +26,8 @@ function Signup() {
   };
 
   const handleSignup = async () => {
-    const url = "http://localhost:3001/users";
+    //const url = "http://localhost:3001/users";
+    const url = "https://habby-backend.onrender.com/users";
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },

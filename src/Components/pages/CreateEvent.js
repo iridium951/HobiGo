@@ -18,7 +18,8 @@ function CreateEvent() {
     //console.log("1");
     var loginToken = sessionStorage.getItem("AUTH_TOKEN");
     //console.log("2 " + loginToken);
-    const url = "http://localhost:3001/events"
+    //const url = "http://localhost:3001/events";
+    const url = "https://habby-backend.onrender.com/events";
     const requestOptions = {
       method: "POST",
       headers: {

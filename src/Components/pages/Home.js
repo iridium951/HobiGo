@@ -20,7 +20,8 @@ export default function Home() {
     if (done) {
       return;
     }
-    const url = `http://localhost:3001/events`;
+    //const url = "http://localhost:3001/events";
+    const url = "https://habby-backend.onrender.com/events";
     const requestOptions = {
       method: "GET",
       headers: {
