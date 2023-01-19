@@ -53,20 +53,18 @@ function Login() {
       </div>
       <div className="center-input">
         <img src={mail} alt="mail" className="ima1"></img>
-        <input className="input-field" type="text" maxlength="35" size={40} value={maill} onChange={handleMail} />
+        <input className="input-field" type="text" value={maill} onChange={handleMail} />
       </div>
       <div className="center-input">
         <img src={lock} alt="lock" className="ima1"></img>
-        <input className="input-field" type="text" maxlength="35" size={40} value={lockk} onChange={handleLock} />
+        <input className="input-field" type="text" value={lockk} onChange={handleLock} />
       </div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       </div>
       <div className="button-container1">
-        {/*<Link to={{pathname: `/`}}>*/}
         <button className="button login-button1" onClick={() => handleLogin()}>
           Log In
         </button>
-        {/*</Link>*/}
       </div>
     </>
   )

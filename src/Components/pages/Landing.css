@@ -9,11 +9,17 @@
 }
 
 .blurb-header {
+    display: flex;
     margin: 1rem;
     position: inherit;
     width: 269px;
     font-size: 34px;
     line-height: 43px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .blurb {

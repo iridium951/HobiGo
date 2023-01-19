@@ -22,7 +22,7 @@
     background-color: #F2F2F7;
     border: none;
     outline: none;
-    border-bottom: 2px solid green;
+    border-bottom: 2px solid #9ED568;
     width: 80%;
 }
 
@@ -53,7 +53,7 @@
   }
   
   .line {
-    background-color: green;
+    background-color: #9ED568;
     height: 2px;
     width: 80%;
     margin-top: 5px;
@@ -62,7 +62,7 @@
 
 .create-event-button {
     margin: 30px auto;
-    background-color: green;
+    background-color: #9ED568;
     color: white; 
     font-family: "outfit"; 
     font-size: 1.5em; 

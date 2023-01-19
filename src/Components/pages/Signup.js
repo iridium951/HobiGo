@@ -1,27 +1,49 @@
 import React from 'react'
 import "./Signup.css"
-import { Link } from "react-router-dom"
 import { useState } from 'react';
 import mail from "./assets/mail.png"
 import lock from "./assets/lock.png"
 import name from "./assets/name.png"
 
 function Signup() {
-  const [value1, setValue1] = useState('');
-  const [value2, setValue2] = useState('');
-  const [value3, setValue3] = useState('');
+  const [maill, setMail] = useState('');
+  const [lockk, setLock] = useState('');
+  const [namee, setName] = useState('');
 
-  const handleChange1 = (event) => {
-    setValue1(event.target.value);
-  };
-  
-  const handleChange2 = (event) => {
-    setValue2(event.target.value);
+  const handleMail = (event) => {
+    setMail(event.target.value);
   };
 
-  const handleChange3 = (event) => {
-    setValue3(event.target.value);
+  const handleLock = (event) => {
+    setLock(event.target.value);
   };
+
+  const handleName = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleSignup = async () => {
+    const url = "http://localhost:3000/users/signup" 
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept" : "application/json" },
+      body: JSON.stringify({ 'EmailAddress': maill,'Name': namee, 'Password': lockk })
+    }
+    fetch(url, requestOptions)
+      .then(response => {
+        console.log("11 " + response.status);
+        if (response.ok) {
+          console.log("22 ok");
+          response.json().then(data => {
+            console.log("33 data: " + JSON.stringify(data));
+            console.log("44 token: " + JSON.stringify(data.token));
+            sessionStorage.setItem("AUTH_ID", data.id);
+            sessionStorage.setItem("AUTH_TOKEN", data.token);
+            window.location.href = "/";
+          });
+        }
+      })  ;
+  }
 
   return (
     <>
@@ -36,25 +58,22 @@ function Signup() {
     </div>
     <div className="center-input">
     <img src={mail} alt = "mail" className="ima1"></img>
-    <input className="input-field" type="text" maxlength="35" size={40} value={value1} onChange={handleChange1} />
+    <input className="input-field" type="text" maxlength="35" size={40} value={maill} onChange={handleMail} />
     </div>
     <div className="center-input">
-    <img src={name} alt = "name" className="ima1"></img>
-    <input className="input-field" type="text"  maxlength="35" size={41} value={value3} onChange={handleChange3} />
+    <img src={name} alt = "name" className="ima1"></img><p></p>
+    <input className="input-field" type="text" value={namee} onChange={handleName} />
     </div>
     <div className="center-input">
     <img src={lock} alt = "lock" className="ima1"></img>
-    <input className="input-field" type="text"  maxlength="35" size={40} value={value2} onChange={handleChange2} />
+    <input className="input-field" type="text" value={lockk} onChange={handleLock} />
     </div>
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-</div>
+    </div>
     <div className="button-container1">
-        <Link to={{pathname: `/`}}
- > 
-            <button className="button login-button1">
+    <button className="button login-button1" onClick={() => handleSignup()}>
               Sign Up
             </button>
-        </Link>
   </div>
     </>
   )
