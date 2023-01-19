@@ -3,6 +3,7 @@ import "./Login.css"
 import { useState } from 'react';
 import mail from "./assets/mail.png"
 import lock from "./assets/lock.png"
+import { Box } from '@mui/material';
 
 function Login() {
   const [maill, setMail] = useState('');
@@ -41,26 +42,31 @@ function Login() {
 
   return (
     <>
-      <div className="header1" style={{ fontFamily: "outfit" }}>
+    <div className="header1" style={{ fontFamily: "outfit" }}>
         Habby!
       </div>
-      <div className="loginheader" style={{ fontFamily: "outfit" }}>
+    <Box bgcolor="white" justifyItems="center" marginLeft="5%" marginRight="5%" borderRadius="15px">
+      
+      <div   className='login' style={{ fontFamily: "outfit", fontSize: "34px" }}>
         Log In
       </div>
-      <div className="loginmsg" style={{ fontFamily: "outfit" }}>
+      <div className="loginmsg "style={{ fontFamily: "outfit" }}>
         Welcome back! Hop right in and see what you have missed.
       </div>
       <div className="center-input">
-        <img src={mail} alt="mail" className="ima1"></img>
+        <img src={mail} alt="mail" className="ima1" height="20px"></img>
         <input className="input-field" type="text" value={maill} onChange={handleMail} />
       </div>
       <div className="center-input">
-        <img src={lock} alt="lock" className="ima1"></img>
+        <img src={lock} alt="lock" className="ima1" height="20px"></img>
         <input className="input-field" type="text" value={lockk} onChange={handleLock} />
       </div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       </div>
+      
+      </Box>
       <div className="button-container1">
+        
         <button className="button login-button1" onClick={() => handleLogin()}>
           Log In
         </button>

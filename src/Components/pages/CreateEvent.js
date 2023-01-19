@@ -57,17 +57,17 @@ function CreateEvent() {
         <input type="text" value={about} onChange={e => setAbout(e.target.value)} class="inputline" />
       </form>
 
-      <p>WHEN?</p>
+      <p>DATE</p>
       <form class="formstyle">
         <input type="text" value={when} onChange={e => setWhen(e.target.value)} class="inputline" />
       </form>
 
-      <p>WHERE?</p>
+      <p>LOCATION</p>
       <form class="formstyle">
         <input type="text" value={where} onChange={e => setWhere(e.target.value)} class="inputline" />
       </form>
 
-      <p>FOR HOW MANY PEOPLE?</p>
+      <p>NUMBER OF VISITORS</p>
       <form class="formstyle">
         <input type="text" value={people} onChange={e => setPeople(e.target.value)} class="inputline" />
       </form>

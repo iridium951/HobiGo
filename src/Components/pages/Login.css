@@ -8,17 +8,15 @@
     font-size: 25px;
 }
     
-.loginheader {
-    margin: 1rem;
-    margin-top: 140px;
-    font-size: 34px;
+.login {
+    margin: none;
+    padding: 1rem;
 }
     
 .loginmsg {
-    margin: 1rem 1rem 50px;
-    font-family: 'Outfit';
-    font-size: 20px;
-    line-height: 25px;
+    margin: none;
+    padding: 1rem;
+    
  }
     
 .button {
@@ -43,12 +41,8 @@
 }
 
 .center-input {
-    display: flex;
-    margin: 1rem;
-    width: 326px;
-    left: 32px;
-    top: 427px;
-    outline:none
+    margin: 5%;
+    
 }
 
 .input-field {
