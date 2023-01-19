@@ -30,6 +30,11 @@ export default function BottomNav() {
             add_circle
           </span>
         </CustomLink>
+        <CustomLink to="/schedule">
+          <span className="material-symbols-outlined">
+            calendar_today
+          </span>
+        </CustomLink>
         
         
       </ul>

@@ -1,6 +1,5 @@
 import React from 'react'
 import "./YourLocation.css"
-import { Box } from '@mui/material';
 import map from "./pages/Images/Map.png"
 
 function YourLocation() {

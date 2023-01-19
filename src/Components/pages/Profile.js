@@ -5,7 +5,6 @@ import "./Profile.css"
 import { Avatar, Box } from '@mui/material';
 import { useState } from 'react';
 import pp from "./Images/pp.png" 
-import map from "./Images/Map.png"
 
 
 
