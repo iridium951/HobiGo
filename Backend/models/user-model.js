@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        trim: true 
+        trim: true
     },
     Name: {
         type: String
@@ -16,13 +16,13 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 6
     },
-    Interests:                  //hier noch unsicher, da man aus der Liste auswählt und nichts eingibt
-    [{ type : String }],
-/*     Location: {
+    Interests:
+        [{ type: String }],
+    /*  Location: {
         type: LocationModel
-    }, */
-    token :                     //zum Authentifizieren
-        [{ type : String }]
+        }, */
+    token:
+        [{ type: String }]
 });
 
 const UserModel = mongoose.model("users", userSchema);
