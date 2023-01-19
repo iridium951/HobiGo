@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import football from "./Images/Football.png"
 import basketball from "./Images/Basketball.png"
 import skateboard from "./Images/Skateboard.png"
+import poker from "./Images/Poker.png"
 
-const images = [football, basketball, skateboard]
 
 export default function Home() {
   const [events, setEvents] = useState([]);
@@ -48,7 +48,7 @@ export default function Home() {
 
   fetchData();
 
-  const images = [football, basketball, skateboard]
+  const images = [football, basketball, skateboard, poker]
 
   const reccards = events.map((data, index) =>
     <Link

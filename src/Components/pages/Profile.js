@@ -4,6 +4,8 @@ import YourLocation from "../YourLocation";
 import "./Profile.css"
 import { Avatar, Box } from '@mui/material';
 import { useState } from 'react';
+import pp from "./Images/pp.png" 
+import map from "./Images/Map.png"
 
 
 
@@ -48,7 +50,7 @@ export default function Profile() {
   return (
     <>
       <Box justifyContent="center" alignItems="center" display="flex" margin="1rem">
-        <Avatar shape="circle" style={{ width: 100, height: 100 }} />
+        <Avatar src={pp} alt="profile pic" shape="circle" style={{ width: 100, height: 100 }} />
       </Box>
 
       <div className="name" style={{ fontFamily: "outfit" }}>

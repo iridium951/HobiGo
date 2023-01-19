@@ -12,23 +12,11 @@ function YourInterests() {
     
     <Chip label="Sports" variant="outlined" size="large" style={{ margin: '0 8px 8px 0' }} />
     <Chip label="Basketball" variant="outlined" style={{ margin: '0 8px 8px 0' }} />
-    <Chip label="Books" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Art" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Hiking" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Football" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Art" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Hiking" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Football" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Art" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Hiking" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Football" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Art" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Hiking" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Football" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Art" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Hiking" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Football" variant="outlined" style={{ margin: '0 8px 8px 0' }}/>
-    <Chip label="Add More" variant="outlined" style={{ backgroundColor: "green", color: "white", margin: '0 8px 8px 0' }} />
+    <Chip label="Football" variant="outlined" style={{ margin: '0 8px 8px 0' }} />
+    <Chip label="Skateboard" variant="outlined" style={{ margin: '0 8px 8px 0' }} />
+    <Chip label="Night Out" variant="outlined" style={{ margin: '0 8px 8px 0' }} />
+  
+    <Chip label="Add More" variant="outlined" style={{ backgroundColor: "rgba(158, 212, 104, 1)", border: "none", color: "white", margin: '0 8px 8px 0' }} />
         
     </Box>
     </>
