@@ -54,11 +54,11 @@ function Login() {
         Welcome back! Hop right in and see what you have missed.
       </div>
       <div className="center-input">
-        <img src={mail} alt="mail" className="ima1"></img>
+        <img src={mail} alt="mail" className="ima1" height="20px"></img>
         <input className="input-field" type="text" value={maill} onChange={handleMail} />
       </div>
       <div className="center-input">
-        <img src={lock} alt="lock" className="ima1"></img>
+        <img src={lock} alt="lock" className="ima1" height="20px"></img>
         <input className="input-field" type="text" value={lockk} onChange={handleLock} />
       </div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
