@@ -13,34 +13,40 @@ import YourSchedule from './Components/pages/YourSchedule'
 import Landing from './Components/pages/Landing'
 import Login from './Components/pages/Login'
 import Signup from './Components/pages/Signup'
+import {Helmet} from "react-helmet";
 
 function App() {
   return (
-  <>
-  <div className='wrapper'>
-    <Navbar />
-    <div className='content-container'>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/create-event" element={<CreateEvent />} />
-        <Route path="/event/:id" element={<Event />} />
-        <Route path="/schedule" element={<YourSchedule />} />
-        <Route path="/landing" element={<Landing />} /> 
-        <Route path="/login" element={<Login />} /> 
-        <Route path="/signup" element={<Signup />} /> 
-      
-      </Routes>
-    </div>
-  </div>
-  <div className='b-wrapper'>
-    <BottomNav />
-  </div>
-  
+    <><div>
+       <Helmet>
+                <meta charSet="utf-8" />
+                <title>Habby</title>
+            </Helmet>
+    </div><>
+        <div className='wrapper'>
+          <Navbar />
+          <div className='content-container'>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/chat" element={<Chat />} />
+              <Route path="/create-event" element={<CreateEvent />} />
+              <Route path="/event/:id" element={<Event />} />
+              <Route path="/schedule" element={<YourSchedule />} />
+              <Route path="/landing" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
 
-  </>
+            </Routes>
+          </div>
+        </div>
+        <div className='b-wrapper'>
+          <BottomNav />
+        </div>
+
+
+      </></>
   )
 }
 
