@@ -18,7 +18,6 @@ function Login() {
 
   const handleLogin = async () => {
     const url = "http://localhost:3000/users/login"
-    
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept" : "application/json" },

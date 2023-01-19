@@ -72,7 +72,7 @@ function Signup() {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       </div>
       <div className="button-container1">
-        <Link to={{ pathname: `/` }}>
+        <Link to={{ pathname: `/login` }}>
           <button className="button login-button1" onClick={() => handleSignup()}>
             Sign Up
           </button>
